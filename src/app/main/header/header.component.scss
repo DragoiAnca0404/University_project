@@ -1,0 +1,27 @@
+@import "../../../styles.scss";
+@import "../../../variables.scss";
+
+.header {
+    height: $footer-height;
+    background-color: $univ-black;
+    color: $univ-red;
+}
+h5{
+        font-family:  "Arial Black", Arial, Helvetica, sans-serif;;        ;
+        color: white;
+        margin-bottom: 0.1rem;
+       
+    }
+p{
+    font-family: Trebuchet MS;
+    color:white;
+    text-shadow: 0 0 1px #ff0000;
+
+}
+
+.button1 {
+    border-radius: 50%;
+    align-self: center;
+}
+
+

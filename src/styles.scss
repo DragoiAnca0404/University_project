@@ -1,0 +1,21 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "../src/variables.scss";
+
+.mat-button, .mat-raised-button {
+    &.mat-primary {
+        background-color: $univ-red;
+        color: $univ-white;
+    }
+    &.mat-secondary {
+        background-color: $univ-grey;
+        color: $univ-black;  
+    }
+    &.mat-warn {
+        background-color: $univ-black;
+        color: $univ-red;
+    }
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $univ-black;
+}

@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar><mat-icon>account_box</mat-icon>&nbsp;<span *ngIf="isExpanded">Menu</span></mat-toolbar>
+    
+    <mat-nav-list>
+    <mat-list-item>
+    <mat-icon mat-list-icon class="chevron-button sidenav-button" (click)="isExpanded = !isExpanded" [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+    </mat-list-item>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/details']"><mat-icon>how_to_reg</mat-icon>&nbsp;<span *ngIf="isExpanded">Details</span></a>
+      <a mat-list-item href="#"><mat-icon>library_books</mat-icon>&nbsp;<span *ngIf="isExpanded">All courses</span></a>
+      <a mat-list-item href="#"><mat-icon>grade</mat-icon>&nbsp;<span *ngIf="isExpanded">Grades</span></a>
+      <a mat-list-item href="#"><mat-icon>class</mat-icon>&nbsp;<span *ngIf="isExpanded">Class schedule</span></a>
+      <a mat-list-item href="#"><mat-icon>people</mat-icon>&nbsp;<span *ngIf="isExpanded">Community</span></a>
+      <a mat-list-item href="#"><mat-icon>event_available</mat-icon>&nbsp;<span *ngIf="isExpanded">Events</span></a>
+      <a mat-list-item [routerLink]="['/map']"><mat-icon> map</mat-icon>&nbsp;<span *ngIf="isExpanded">Campus Map</span></a>
+      <a mat-list-item href="#"><mat-icon>assessment</mat-icon>&nbsp;<span *ngIf="isExpanded">Quiz</span></a>
+    </mat-nav-list>
+    <mat-toolbar><mat-icon>perm_data_setting</mat-icon>&nbsp;<span *ngIf="isExpanded">Settings</span></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#"><mat-icon>account_circle</mat-icon> &nbsp;<span *ngIf="isExpanded">My profile</span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+</mat-sidenav-content>
+</mat-sidenav-container>
