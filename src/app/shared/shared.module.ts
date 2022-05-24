@@ -8,6 +8,8 @@ import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -20,6 +22,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FormsModule,
     HttpClientModule
   ],
-  exports: [HttpClientModule,FormsModule, MatCardModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatTooltipModule]
+  exports: [HttpClientModule,FormsModule, MatCardModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatTooltipModule,MatSelectModule]
 })
 export class SharedModule { }

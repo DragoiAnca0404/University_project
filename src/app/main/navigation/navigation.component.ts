@@ -9,7 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
-
+  role:any;
   isExpanded: boolean = false;
 
 
@@ -20,5 +20,9 @@ export class NavigationComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+  ngOnInit(): void {
+    this.role = localStorage.getItem('role');
+  }
+
 
 }

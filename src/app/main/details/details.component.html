@@ -4,7 +4,7 @@
         <mat-card-title>{{item.surname}} {{item.name}}</mat-card-title>
         <mat-card-subtitle>email: {{item.email}}</mat-card-subtitle>
         <mat-card-content>
-          <p *ngIf="role == 'Course'">Course: {{item.course}}</p>
+          <p *ngIf="role == 'Profesor'">Course: {{item.course}}</p>
           <p *ngIf="role == 'Profesor'">Degree: {{item.degree}}</p>
           <p *ngIf="role == 'Student'">Pay: {{item.pay}}</p>
           <p *ngIf="role == 'Student'">Major: {{item.major}}</p>

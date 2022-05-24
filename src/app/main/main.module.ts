@@ -12,6 +12,8 @@ import { MatListModule } from '@angular/material/list';
 import { DetailsComponent } from './details/details.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MapComponent } from './map/map.component';
+import { AddGradesComponent } from './add-grades/add-grades.component';
+import { GradesComponent } from './grades/grades.component';
 
 
 
@@ -23,7 +25,9 @@ import { MapComponent } from './map/map.component';
     MainPageComponent,
     NavigationComponent,
     DetailsComponent,
-    MapComponent
+    MapComponent,
+    AddGradesComponent,
+    GradesComponent
   ],
   imports: [
     AppRoutingModule,
