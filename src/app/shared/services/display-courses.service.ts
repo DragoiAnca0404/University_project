@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DisplayCoursesService {
+
+  constructor(private httpClient: HttpClient) { }
+
+  defaultBeUrl: string = environment.backendUrl;
+
+  displayCourses(params: any): Observable<any> {
+
+    let requestParams = new HttpParams();
+    requestParams = requestParams.append('username', params.username);
+    return this.httpClient.get(`${this.defaultBeUrl}/CoursesDisplay`,{params: requestParams});
+
+  }
+
+
+}
