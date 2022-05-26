@@ -3,9 +3,9 @@
 <mat-form-field>
   <mat-select >
     <mat-option>None</mat-option>
-     <ng-container *ngFor="let item of courses">
+     <button (click)="onSelect(item)" *ngFor="let item of courses">
       <mat-option>{{item.denumire_materie}}</mat-option>
-    </ng-container>
+    </button>
   </mat-select>
 </mat-form-field>
 </div>

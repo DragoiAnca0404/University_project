@@ -6,6 +6,7 @@ import { DetailsComponent } from './main/details/details.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { MapComponent } from './main/map/map.component';
 import { AddGradesComponent } from './main/add-grades/add-grades.component';
+import { DisplayGradesComponent } from './main/display-grades/display-grades.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
     path:'add-grades',
     component: AddGradesComponent
   },
+  {
+    path:'add-grades/:denumire_materie',
+    component: DisplayGradesComponent
+  },
   { path : '', redirectTo:'/login', pathMatch : 'full'}
 
 ];
@@ -38,3 +43,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [DisplayGradesComponent, AddGradesComponent]

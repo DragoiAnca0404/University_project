@@ -14,6 +14,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MapComponent } from './map/map.component';
 import { AddGradesComponent } from './add-grades/add-grades.component';
 import { GradesComponent } from './grades/grades.component';
+import { DisplayGradesComponent } from './display-grades/display-grades.component';
 
 
 
@@ -27,7 +28,8 @@ import { GradesComponent } from './grades/grades.component';
     DetailsComponent,
     MapComponent,
     AddGradesComponent,
-    GradesComponent
+    GradesComponent,
+    DisplayGradesComponent
   ],
   imports: [
     AppRoutingModule,

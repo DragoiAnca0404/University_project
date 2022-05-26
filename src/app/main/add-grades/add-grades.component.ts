@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class AddGradesComponent implements OnInit {
   username:any;
 
    constructor(
-    public coursesService: DisplayCoursesService
+    public coursesService: DisplayCoursesService, private router: Router
   ) { 
     const params = {
       username:localStorage.getItem('username'),
@@ -24,7 +25,14 @@ export class AddGradesComponent implements OnInit {
   
   }
   
+  //$event will hold value and other reference.
+//data(data: string) {
+ // this.router.navigate(['/users/edit/',item.]);}
+
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
+  }
+  onSelect(item:any){
+    this.router.navigate(['/add-grades',item.denumire_materie]);
   }
 }
