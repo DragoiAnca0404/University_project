@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 
 @Component({
   selector: 'app-display-grades',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display-grades.component.scss']
 })
 export class DisplayGradesComponent implements OnInit {
-
-  constructor() { }
+message:any
+  constructor(private shared:DisplayCoursesService ) { }
 
   ngOnInit(): void {
+    this.message=this.shared.getMessage()
   }
 
 }

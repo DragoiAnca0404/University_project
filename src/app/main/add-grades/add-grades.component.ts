@@ -34,5 +34,6 @@ export class AddGradesComponent implements OnInit {
   }
   onSelect(item:any){
     this.router.navigate(['/add-grades',item.denumire_materie]);
+    this.coursesService.setMessage(item.denumire_materie)
   }
 }

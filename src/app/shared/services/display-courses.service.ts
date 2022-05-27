@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class DisplayCoursesService {
+  message:string;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,6 +19,14 @@ export class DisplayCoursesService {
     requestParams = requestParams.append('username', params.username);
     return this.httpClient.get(`${this.defaultBeUrl}/CoursesDisplay`,{params: requestParams});
 
+  }
+
+  setMessage(data:any){
+    this.message=data
+  }
+  
+  getMessage(){
+    return this.message
   }
 
 
