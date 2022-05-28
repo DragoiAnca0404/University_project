@@ -15,6 +15,7 @@ import { MapComponent } from './map/map.component';
 import { AddGradesComponent } from './add-grades-teacher/add-grades.component';
 import { GradesComponent } from './grades/grades.component';
 import { DisplayGradesComponent } from './display-grades-teacher/display-grades.component';
+import { AddFormGradeComponent } from './add-form-grade/add-form-grade.component';
 
 
 
@@ -29,7 +30,8 @@ import { DisplayGradesComponent } from './display-grades-teacher/display-grades.
     MapComponent,
     AddGradesComponent,
     GradesComponent,
-    DisplayGradesComponent
+    DisplayGradesComponent,
+    AddFormGradeComponent
   ],
   imports: [
     AppRoutingModule,
