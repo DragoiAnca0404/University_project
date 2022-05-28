@@ -12,7 +12,7 @@ users:any
 
   constructor(private shared:DisplayCoursesService ) {
     const params = {
-      username: this.message=this.shared.getMessage()
+      denumire_materie: this.message=this.shared.getMessage()
 
     };
 
