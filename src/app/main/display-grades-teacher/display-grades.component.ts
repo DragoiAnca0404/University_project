@@ -13,21 +13,30 @@ users:any
   constructor(private shared:DisplayCoursesService ) {
     const params = {
       denumire_materie: this.message=this.shared.getMessage()
-
     };
     
-
-
-
     this.shared.displayGrades(params).subscribe(data=>{
       console.log("data",data);
       this.users=data
     }) 
-
    }
-
 
   ngOnInit(): void {
     this.message=this.shared.getMessage()
+  }
+
+  modalTitle:string = '';
+  activateAddEditInspectionComponent:boolean = false;
+  inspection:any;
+
+  modalAdd() {
+    this.inspection = {
+      id:0,
+      name:null,
+      surname:null,
+      grade:null
+    }
+    this.modalTitle = "Add New Grades";
+    this.activateAddEditInspectionComponent = true;
   }
 }
