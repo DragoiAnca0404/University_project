@@ -37,4 +37,13 @@ export class DisplayCoursesService {
 
   }
 
+  addGrades(params: any): Observable<any> {
+    let requestParams = new HttpParams();
+    requestParams = requestParams.append('name', params.name);
+    return this.httpClient.post(`${this.defaultBeUrl}/GradesDisplay`,{params: requestParams});
+
+
+  }
+  
+
 }

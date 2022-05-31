@@ -1,15 +1,17 @@
 <form>
-<div class="mb-3">
-  <label for="inspectionTypeId" class="form-label">Inspection Type</label>
-  <!--<input type="text" class="form-control" name="inspectionTypeId" [(ngModel)]="inspectionTypeId" *ngIf="inspection.id!=0" disabled>
- 
-  <select class="form-control" name="inspectionTypeId" id="inspectionTypeId" [(ngModel)]="inspectionTypeId" *ngIf="grades.id==0"> -->
-    <option *ngFor="let item of users" [value]="item.id">{{item.name}}</option>   
+  <div class="mb-3">
+    <label for="inspectionTypeId" class="form-label">Please select student</label>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Please select student</option>
+      <option *ngFor="let item of users">{{item.name}} {{item.surname}}</option>
+    </select>
+  </div>
 
-
-
-
-
-</div>
-
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">Introdu grade</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+  </div>
+  <button (click)="addInspection()" class="btn btn-primary">
+    Add
+  </button>
 </form>
