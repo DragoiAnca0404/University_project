@@ -9,9 +9,6 @@ import { DisplayCoursesService } from 'src/app/shared/services/display-courses.s
 })
 export class AddFormGradeComponent implements OnInit {
 
-  /*inspectionList$!: Observable<any[]>;
-  statusList$!: Observable<any[]>;
-  inspectionTypesList$!: Observable<any[]>;*/
   message:any;
   users:any;
 
@@ -32,6 +29,21 @@ export class AddFormGradeComponent implements OnInit {
   surname:string="";
   grade:number;
 
+  addItem() {
+    const val = {
+      denumire_materie: this.message=this.shared.getMessage(),
+      id_user:this.id,
+      grade:this.grade,
+    };
+    this.shared.addGrades(val).subscribe(res => {
+      alert(res.toString());
+      console.log("res",res);
+      this.users=res
+    })
+  
+  }
+
+
   ngOnInit(): void {
     this.id = this.grades.id;
     this.name = this.grades.name;
@@ -40,3 +52,5 @@ export class AddFormGradeComponent implements OnInit {
   }
 
 }
+
+
