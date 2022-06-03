@@ -7,7 +7,7 @@
   <mat-label>The Subject</mat-label>
   <mat-select >
     <mat-option>None</mat-option>
-     <button (click)="onSelect(item)" *ngFor="let item of courses">
+     <button (click)="onSelect(item)" *ngFor="let item of courses" >
       <mat-option>{{item.denumire_materie}}</mat-option>
     </button>
   </mat-select>

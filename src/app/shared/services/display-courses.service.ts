@@ -2,16 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DisplayGrade } from './display-grade.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DisplayCoursesService {
   message:string;
+  formData: DisplayGrade= {
+    id_user: 0,
+    denumire_materie : "",
+    grade : 0
+  };
 
   constructor(private httpClient: HttpClient) { }
 
   defaultBeUrl: string = environment.backendUrl;
+
+  addGrades(): Observable<any> {
+    return this.httpClient.post(`${this.defaultBeUrl}/add`, this.formData);
+  }
 
   displayCourses(params: any): Observable<any> {
 
@@ -37,9 +47,6 @@ export class DisplayCoursesService {
 
   }
 
-  addGrades(params: any): Observable<any> {
-    return this.httpClient.post(`${this.defaultBeUrl}/AddGrade`,params);
-  }
-  
+
 
 }

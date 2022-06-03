@@ -25,9 +25,6 @@ export class AddGradesComponent implements OnInit {
   
   }
   
-  //$event will hold value and other reference.
-//data(data: string) {
- // this.router.navigate(['/users/edit/',item.]);}
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
