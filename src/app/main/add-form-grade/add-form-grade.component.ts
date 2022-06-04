@@ -1,5 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms'
 
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 @Component({
@@ -13,12 +14,20 @@ export class AddFormGradeComponent implements OnInit {
   grades:any;
   denumire_materie:any;
   users:any;
+  bioSection:any
+
+
 
   constructor(public shared:DisplayCoursesService ) {
     const params = {
       denumire_materie: this.denumire_materie=this.shared.getMessage()
     };
-    shared.formData.denumire_materie
+    
+    this.bioSection = new FormGroup({
+      id_user: new FormControl(),
+      grade: new FormControl(''),
+      denumire_materie: new FormControl(this.denumire_materie)
+    });
    
 
     this.shared.displayGrades(params).subscribe(data=>{
@@ -30,14 +39,22 @@ export class AddFormGradeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+ /* callingFunction() {
+    console.log(this.bioSection.value);
+   }*/
 
-  addItem(form: NgForm) {
-    this.shared.addGrades().subscribe(
-      res => {
-        console.log(res);
-      }
-    )
+   callingFunction() {
+    this.shared.addGrades(this.bioSection.value)
+    .subscribe(
+        (data) => {
+           console.log('Form submitted successfully');
+        },
+        (error: HttpErrorResponse) => {
+            console.log(error);
+        }
+    );
   }
+
 }
 
 

@@ -1,7 +1,7 @@
-<form #addForm="ngForm" (ngSubmit)="addItem(addForm)">
+<form [formGroup]="bioSection" (ngSubmit)="callingFunction()">
   <div class="mb-3">
     <label class="form-label">Please select student</label>
-    <select class="form-select" name="id_user" [(ngModel)]="shared.formData.id_user">
+    <select class="form-select" formControlName="id_user">
       <option selected>Please select student</option>
       <option *ngFor="let item of users" [ngValue]="item.id_user">{{item.id_user}} {{item.name}} {{item.surname}} </option> 
     </select>
@@ -9,10 +9,10 @@
 
   <div class="mb-3">
     <label  for="formGroupExampleInput2" class="form-label">Introdu grade</label>
-    <input type="number" class="form-control" [(ngModel)]="shared.formData.grade" name="grade">
+    <input type="number" formControlName="grade">
   </div>
 
-  <button class="btn btn-primary" [disabled]="!addForm.valid">
+  <button class="btn btn-primary">
     Add
   </button>
 
