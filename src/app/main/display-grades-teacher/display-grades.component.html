@@ -1,10 +1,12 @@
 
 <p>&nbsp;</p>
-<button class="position" mat-stroked-button>Add Grade</button>
+<!--<button class="position" data-bs-toggle="modal" (click)="modalAdd()">Add Grade</button> -->
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary float-end m-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="modalAdd()">
+<div class="text-center">
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="modalAdd()">
   Add Grade
 </button>
+</div>
 <p>&nbsp;</p>
 <table class="table table-striped">
 <thead>
@@ -47,6 +49,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <img width="50px" height="50px" src="assets/images/student.png">
         <h5 class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="add-edit-modal-close"></button>
       </div>

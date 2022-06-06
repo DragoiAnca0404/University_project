@@ -20,7 +20,7 @@ export class DisplayCoursesService {
   defaultBeUrl: string = environment.backendUrl;
 
   addGrades(data: any): Observable<any> {
-    return this.httpClient.post(`${this.defaultBeUrl}/add`, data);
+    return this.httpClient.post(`${this.defaultBeUrl}/add`, data, {responseType: 'text'});
   }
 
   displayCourses(params: any): Observable<any> {
