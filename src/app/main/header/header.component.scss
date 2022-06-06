@@ -7,13 +7,15 @@
     color: $univ-red;
 }
 h5{
-        font-family:  "Arial Black", Arial, Helvetica, sans-serif;;        ;
+        font: 1.2em "Fira Sans", sans-serif;
         color: white;
         margin-bottom: 0.1rem;
+        margin-top: 0.4rem;
+        text-shadow: 0 0 1px #ff0000;
        
     }
 p{
-    font-family: Trebuchet MS;
+    font: 1.2em "Fira Sans", sans-serif;
     color:white;
     text-shadow: 0 0 1px #ff0000;
 
