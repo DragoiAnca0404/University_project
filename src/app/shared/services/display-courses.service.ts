@@ -47,6 +47,15 @@ export class DisplayCoursesService {
 
   }
 
+  displayStudents(params: any): Observable<any> {
+
+    let requestParams = new HttpParams();
+    requestParams = requestParams.append('denumire_materie', params.denumire_materie);
+    return this.httpClient.get(`${this.defaultBeUrl}/DisplayStudents`,{params: requestParams});
+
+  }
+
+
 
 
 }
