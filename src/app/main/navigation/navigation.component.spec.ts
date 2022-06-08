@@ -8,7 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 import { NavigationComponent } from './navigation.component';

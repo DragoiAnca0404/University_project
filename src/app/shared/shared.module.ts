@@ -11,15 +11,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 
 
-
-
-
 @NgModule({
   declarations: [
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   exports: [HttpClientModule,FormsModule,ReactiveFormsModule, MatCardModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatTooltipModule,MatSelectModule]

@@ -9,13 +9,13 @@ import { DisplayCoursesService } from 'src/app/shared/services/display-courses.s
   styleUrls: ['./add-form-grade.component.scss']
 })
 export class AddFormGradeComponent implements OnInit {
-  id_user: number
-  grade:number
-  grades:any
-  denumire_materie:any
-  users:any
+  id_user: number;
+  grade:number;
+  grades:any;
+  denumire_materie:any;
+  users:any;
+  displayUsers:any;
   bioSection:any
-  displayUsers:any
 
 
 
@@ -45,21 +45,21 @@ export class AddFormGradeComponent implements OnInit {
   ngOnInit(): void {
 
   }
-   /*callingFunction() {
+ callingFunction() {
     console.log(this.bioSection.value);
-   }*/
+   }
 
-  callingFunction() {
+ /* callingFunction() {
     this.shared.addGrades(this.bioSection.value)
     .subscribe(
-        () => {
+        (data) => {
            console.log('Form submitted successfully');
         },
         (error: HttpErrorResponse) => {
             console.log(error);
         }
     );
-  }
+  }*/
 
 }
 
