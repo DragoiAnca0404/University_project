@@ -1,7 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms'
-
+import { FormGroup,FormControl } from '@angular/forms'
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 @Component({
   selector: 'app-add-form-grade',
@@ -16,6 +15,7 @@ export class AddFormGradeComponent implements OnInit {
   users:any;
   displayUsers:any;
   bioSection:any
+  
 
 
 
@@ -28,7 +28,7 @@ export class AddFormGradeComponent implements OnInit {
       id_user: new FormControl(),
       grade: new FormControl(''),
       denumire_materie: new FormControl(this.denumire_materie)
-    })
+    });
    
 
     this.shared.displayGrades(params).subscribe(items=>{
@@ -45,11 +45,11 @@ export class AddFormGradeComponent implements OnInit {
   ngOnInit(): void {
 
   }
- callingFunction() {
+ /*callingFunction() {
     console.log(this.bioSection.value);
-   }
+   }*/
 
- /* callingFunction() {
+ callingFunction() {
     this.shared.addGrades(this.bioSection.value)
     .subscribe(
         (data) => {
@@ -59,7 +59,7 @@ export class AddFormGradeComponent implements OnInit {
             console.log(error);
         }
     );
-  }*/
+  }
 
 }
 
