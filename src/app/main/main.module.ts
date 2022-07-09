@@ -9,7 +9,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { DetailsComponent } from './details/details.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MapComponent } from './map/map.component';
 import { AddGradesComponent } from './add-grades-teacher/add-grades.component';
@@ -26,7 +25,6 @@ import { AddFormGradeComponent } from './add-form-grade/add-form-grade.component
     FooterComponent,
     MainPageComponent,
     NavigationComponent,
-    DetailsComponent,
     MapComponent,
     AddGradesComponent,
     GradesComponent,

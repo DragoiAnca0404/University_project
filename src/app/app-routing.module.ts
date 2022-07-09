@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './main/login/login.component';
 import { MainPageComponent } from './main/main-page/main-page.component';
-import { DetailsComponent } from './main/details/details.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { MapComponent } from './main/map/map.component';
 import { AddGradesComponent } from './main/add-grades-teacher/add-grades.component';
 import { DisplayGradesComponent } from './main/display-grades-teacher/display-grades.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   {
