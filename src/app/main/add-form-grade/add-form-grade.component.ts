@@ -16,9 +16,6 @@ export class AddFormGradeComponent implements OnInit {
   displayUsers:any;
   bioSection:any
   
-
-
-
   constructor(public shared:DisplayCoursesService ) {
     const params = {
       denumire_materie: this.denumire_materie=this.shared.getMessage()
