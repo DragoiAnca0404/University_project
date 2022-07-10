@@ -5,7 +5,7 @@ import { MainPageComponent } from './main/main-page/main-page.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { MapComponent } from './main/map/map.component';
 import { DetailsComponent } from './details/details.component';
-import { AddGradesComponent } from './add-grade-page/select-grades-teacher/add-grades.component';
+import { AddGradesComponent } from './add-grade-page/select-subject-teacher/add-grades.component';
 import { DisplayGradesComponent } from './add-grade-page/display-grades/display-grades.component';
 
 const routes: Routes = [
