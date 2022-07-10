@@ -7,11 +7,13 @@ import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
+import { HeroDetailComponent } from './add-grade-page/hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
+    HeroDetailComponent,
   ],
   imports: [
     BrowserModule,
