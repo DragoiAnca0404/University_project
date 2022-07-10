@@ -12,9 +12,9 @@ import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from '../app-routing.module';
 import { MapComponent } from './map/map.component';
 import { GradesComponent } from './grades/grades.component';
-import { DisplayGradesComponent } from './display-grades-teacher/display-grades.component';
-import { AddFormGradeComponent } from './add-form-grade/add-form-grade.component';
-import { AddGradesComponent } from '../add-grade-page/add-grades-teacher/add-grades.component';
+import { AddGradesComponent } from '../add-grade-page/select-grades-teacher/add-grades.component';
+import { DisplayGradesComponent } from '../add-grade-page/display-grades/display-grades.component';
+import { AddFormGradeComponent } from '../add-grade-page/add-form-grade/add-form-grade.component';
 
 
 

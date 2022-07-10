@@ -4,9 +4,9 @@ import { LoginComponent } from './main/login/login.component';
 import { MainPageComponent } from './main/main-page/main-page.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { MapComponent } from './main/map/map.component';
-import { DisplayGradesComponent } from './main/display-grades-teacher/display-grades.component';
 import { DetailsComponent } from './details/details.component';
-import { AddGradesComponent } from './add-grade-page/add-grades-teacher/add-grades.component';
+import { AddGradesComponent } from './add-grade-page/select-grades-teacher/add-grades.component';
+import { DisplayGradesComponent } from './add-grade-page/display-grades/display-grades.component';
 
 const routes: Routes = [
   {
