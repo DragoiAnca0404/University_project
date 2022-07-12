@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -15,6 +11,9 @@ import { GradesComponent } from './grades/grades.component';
 import { AddGradesComponent } from '../add-grade-page/select-subject-teacher/add-grades.component';
 import { DisplayGradesComponent } from '../add-grade-page/display-grades/display-grades.component';
 import { AddFormGradeComponent } from '../add-grade-page/add-form-grade/add-form-grade.component';
+import { FooterComponent } from '../first-page/footer/footer.component';
+import { HeaderComponent } from '../first-page/header/header.component';
+import { NavigationComponent } from '../first-page/navigation/navigation.component';
 
 
 
@@ -23,7 +22,6 @@ import { AddFormGradeComponent } from '../add-grade-page/add-form-grade/add-form
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    MainPageComponent,
     NavigationComponent,
     MapComponent,
     AddGradesComponent,
