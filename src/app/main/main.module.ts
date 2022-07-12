@@ -14,6 +14,7 @@ import { AddFormGradeComponent } from '../add-grade-page/add-form-grade/add-form
 import { FooterComponent } from '../first-page/footer/footer.component';
 import { HeaderComponent } from '../first-page/header/header.component';
 import { NavigationComponent } from '../first-page/navigation/navigation.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 
 
@@ -27,7 +28,8 @@ import { NavigationComponent } from '../first-page/navigation/navigation.compone
     AddGradesComponent,
     GradesComponent,
     DisplayGradesComponent,
-    AddFormGradeComponent
+    AddFormGradeComponent,
+    MainPageComponent
   ],
   imports: [
     AppRoutingModule,
