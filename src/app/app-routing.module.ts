@@ -11,7 +11,8 @@ import { MainPageComponent } from './main/main-page/main-page.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'main-page',
