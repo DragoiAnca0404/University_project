@@ -7,12 +7,13 @@ import { DetailsComponent } from './details/details.component';
 import { AddGradesComponent } from './add-grade-page/select-subject-teacher/add-grades.component';
 import { DisplayGradesComponent } from './add-grade-page/display-grades/display-grades.component';
 import { MainPageComponent } from './main/main-page/main-page.component';
+import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [UserIsLoginGuard]
   },
   {
     path: 'main-page',

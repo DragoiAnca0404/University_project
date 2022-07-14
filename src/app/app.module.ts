@@ -7,6 +7,8 @@ import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { DetailsComponent } from './details/details.component';
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard, UserIsLoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
