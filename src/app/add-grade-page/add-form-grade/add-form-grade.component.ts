@@ -15,18 +15,17 @@ export class AddFormGradeComponent implements OnInit {
   users:any;
   displayUsers:any;
   bioSection:any
-  
+
   constructor(public shared:DisplayCoursesService ) {
     const params = {
       denumire_materie: this.denumire_materie=this.shared.getMessage()
     };
-    
+
     this.bioSection = new FormGroup({
       id_user: new FormControl(),
       grade: new FormControl(''),
       denumire_materie: new FormControl(this.denumire_materie)
     });
-   
 
     this.shared.displayGrades(params).subscribe(items=>{
       console.log("items",items);
@@ -42,6 +41,17 @@ export class AddFormGradeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  getAllGrades(){
+    const params = {
+      denumire_materie: this.denumire_materie=this.shared.getMessage()
+    };
+
+    this.shared.displayGrades(params).subscribe(data=>{
+      console.log("data",data);
+      this.users=data
+    })
+  }
  /*callingFunction() {
     console.log(this.bioSection.value);
    }*/
@@ -51,6 +61,7 @@ export class AddFormGradeComponent implements OnInit {
     .subscribe(
         (data) => {
            console.log('Form submitted successfully');
+           this.getAllGrades();
         },
         (error: HttpErrorResponse) => {
             console.log(error);

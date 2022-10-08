@@ -14,7 +14,7 @@ users:any
     const params = {
       denumire_materie: this.message=this.shared.getMessage()
     };
-    
+
     this.shared.displayGrades(params).subscribe(data=>{
       console.log("data",data);
       this.users=data
@@ -29,6 +29,17 @@ users:any
   activateAddEditInspectionComponent:boolean = false;
   inspection:any;
 
+getAllGrades(){
+  const params = {
+    denumire_materie: this.message=this.shared.getMessage()
+  };
+
+  this.shared.displayGrades(params).subscribe(data=>{
+    console.log("data",data);
+    this.users=data
+  })
+}
+
   modalAdd() {
     this.inspection = {
       id:0,
@@ -40,5 +51,22 @@ users:any
     this.activateAddEditInspectionComponent = true;
   }
 
-
+  deleteGrade(id:any){
+    this.shared.deleteGrade(id).subscribe(id=>{
+      console.log("id",id);
+      this.users=id
+    }) 
+  }
+  deleteGradeForm(id:any){
+    this.shared.deleteGrade(id)
+    .subscribe({
+      next:(res)=>{
+        alert("Grade Deleted Succesfully");
+        this.getAllGrades();
+      },
+        error:()=>{
+          alert("Error while deleting this grade.")
+        }
+    })
+  }
 }

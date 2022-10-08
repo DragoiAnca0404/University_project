@@ -24,11 +24,9 @@ export class DisplayCoursesService {
   }
 
   displayCourses(params: any): Observable<any> {
-
     let requestParams = new HttpParams();
     requestParams = requestParams.append('username', params.username);
     return this.httpClient.get(`${this.defaultBeUrl}/CoursesDisplay`,{params: requestParams});
-
   }
 
   setMessage(data:any){
@@ -40,20 +38,23 @@ export class DisplayCoursesService {
   }
 
   displayGrades(params: any): Observable<any> {
-
     let requestParams = new HttpParams();
     requestParams = requestParams.append('denumire_materie', params.denumire_materie);
     return this.httpClient.get(`${this.defaultBeUrl}/GradesDisplay`,{params: requestParams});
-
   }
 
   displayStudents(params: any): Observable<any> {
-
     let requestParams = new HttpParams();
     requestParams = requestParams.append('denumire_materie', params.denumire_materie);
     return this.httpClient.get(`${this.defaultBeUrl}/DisplayStudents`,{params: requestParams});
-
   }
+
+  deleteGrade(params:any): Observable<any>{
+    let requestParams = new HttpParams();
+    requestParams = requestParams.append('id', params);
+    return this.httpClient.delete(`${this.defaultBeUrl}/DeleteGradeStudent`,{params: requestParams});
+  }
+
 
 
 
