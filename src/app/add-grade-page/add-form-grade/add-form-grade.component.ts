@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl } from '@angular/forms'
+import { UntypedFormGroup,UntypedFormControl } from '@angular/forms'
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 
 @Component({
@@ -23,10 +23,10 @@ export class AddFormGradeComponent implements OnInit {
       denumire_materie: this.denumire_materie=this.shared.getMessage()
     };
 
-    this.bioSection = new FormGroup({
-      id_user: new FormControl(),
-      grade: new FormControl(''),
-      denumire_materie: new FormControl(this.denumire_materie)
+    this.bioSection = new UntypedFormGroup({
+      id_user: new UntypedFormControl(),
+      grade: new UntypedFormControl(''),
+      denumire_materie: new UntypedFormControl(this.denumire_materie)
     });
 
     this.shared.displayGrades(params).subscribe(items=>{

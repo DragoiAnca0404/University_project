@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './details/details.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
-
+import {NgToastModule} from 'ng-angular-popup';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,8 @@ import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
     SharedModule,
     MainModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgToastModule
   ],
   providers: [AuthGuard, UserIsLoginGuard],
   bootstrap: [AppComponent]

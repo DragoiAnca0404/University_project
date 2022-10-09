@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
-
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-display-grades',
   templateUrl: './display-grades.component.html',
@@ -10,7 +10,7 @@ export class DisplayGradesComponent implements OnInit {
 message:any
 users:any
 
-  constructor(private shared:DisplayCoursesService ) {
+  constructor(private shared:DisplayCoursesService,  private toast: NgToastService ) {
     const params = {
       denumire_materie: this.message=this.shared.getMessage()
     };
@@ -61,6 +61,7 @@ getAllGrades(){
     this.shared.deleteGrade(id)
     .subscribe({
       next:(res)=>{
+        this.toast.success({detail:"ERROR",summary:'Your Error Message',sticky:true});
         alert("Grade Deleted Succesfully");
         this.getAllGrades();
       },
