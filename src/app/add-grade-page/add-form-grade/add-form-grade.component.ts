@@ -2,11 +2,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl } from '@angular/forms'
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
+
 @Component({
   selector: 'app-add-form-grade',
   templateUrl: './add-form-grade.component.html',
   styleUrls: ['./add-form-grade.component.scss']
 })
+
 export class AddFormGradeComponent implements OnInit {
   id_user: number;
   grade:number;
@@ -39,7 +41,6 @@ export class AddFormGradeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
   }
 
   getAllGrades(){
@@ -52,6 +53,7 @@ export class AddFormGradeComponent implements OnInit {
       this.users=data
     })
   }
+
  /*callingFunction() {
     console.log(this.bioSection.value);
    }*/
@@ -60,7 +62,11 @@ export class AddFormGradeComponent implements OnInit {
     this.shared.addGrades(this.bioSection.value)
     .subscribe(
         (data) => {
-           console.log('Form submitted successfully');
+           //console.log('Form submitted successfully');
+           alert('Form submitted successfully');
+           let ref = document.getElementById('cancel');
+           ref?.click();
+           //this.bioSection.reset();
            this.getAllGrades();
         },
         (error: HttpErrorResponse) => {
@@ -68,7 +74,4 @@ export class AddFormGradeComponent implements OnInit {
         }
     );
   }
-
 }
-
-

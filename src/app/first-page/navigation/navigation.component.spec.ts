@@ -9,8 +9,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {  FormsModule } from '@angular/forms';
-
-
 import { NavigationComponent } from './navigation.component';
 
 describe('NavigationComponent', () => {
@@ -31,7 +29,6 @@ describe('NavigationComponent', () => {
         MatFormFieldModule,
         MatSelectModule,
         FormsModule,
-        
               ]
     }).compileComponents();
   }));

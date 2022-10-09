@@ -45,7 +45,7 @@ getAllGrades(){
       id:0,
       name:null,
       surname:null,
-      grade:null
+      grade:null,
     }
     this.modalTitle = "Add New Grades";
     this.activateAddEditInspectionComponent = true;
