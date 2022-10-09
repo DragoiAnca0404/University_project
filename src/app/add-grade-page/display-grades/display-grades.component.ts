@@ -61,12 +61,12 @@ getAllGrades(){
     this.shared.deleteGrade(id)
     .subscribe({
       next:(res)=>{
-        this.toast.success({detail:"ERROR",summary:'Your Error Message',sticky:true});
-        alert("Grade Deleted Succesfully");
+        this.toast.success({detail:"ERROR",summary:'Record deleted successfully!',sticky:true});
+        //alert("Grade Deleted Succesfully");
         this.getAllGrades();
       },
         error:()=>{
-          alert("Error while deleting this grade.")
+          this.toast.error({detail:"ERROR",summary:'Error while deleting this grade.',sticky:true});
         }
     })
   }

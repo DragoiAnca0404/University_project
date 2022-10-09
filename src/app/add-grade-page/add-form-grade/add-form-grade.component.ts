@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup,UntypedFormControl } from '@angular/forms'
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-add-form-grade',
@@ -18,7 +19,7 @@ export class AddFormGradeComponent implements OnInit {
   displayUsers:any;
   bioSection:any
 
-  constructor(public shared:DisplayCoursesService ) {
+  constructor(public shared:DisplayCoursesService, private toast: NgToastService  ) {
     const params = {
       denumire_materie: this.denumire_materie=this.shared.getMessage()
     };
@@ -64,13 +65,14 @@ export class AddFormGradeComponent implements OnInit {
         (data) => {
            //console.log('Form submitted successfully');
            alert('Form submitted successfully');
+           this.toast.success({detail:"ERROR",summary:'Form submitted successfully',sticky:true});
            let ref = document.getElementById('cancel');
            ref?.click();
            //this.bioSection.reset();
            this.getAllGrades();
         },
         (error: HttpErrorResponse) => {
-            console.log(error);
+          this.toast.error({detail:"ERROR",summary:'Error while deleting this grade.',sticky:true});
         }
     );
   }
