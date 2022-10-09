@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { DisplayCoursesService } from './display-courses.service';
 
 describe('DisplayCoursesService', () => {

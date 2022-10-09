@@ -54,9 +54,4 @@ export class DisplayCoursesService {
     requestParams = requestParams.append('id', params);
     return this.httpClient.delete(`${this.defaultBeUrl}/DeleteGradeStudent`,{params: requestParams});
   }
-
-
-
-
-
 }
