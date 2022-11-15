@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit {
-  name:any;
-  surname:any;
-  role:any;
-  constructor(private router : Router) { }
+  name: any;
+  surname: any;
+  role: any;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.name = localStorage.getItem('name');
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.role = localStorage.getItem('role');
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('jwt');
     this.router.navigate(['/login']);
   }

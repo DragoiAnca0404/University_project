@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   isPasswordHidded: boolean = true;
-  showError:boolean;
+  showError: boolean;
 
 
   constructor(
@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('name', resp.body.name);
       localStorage.setItem('surname', resp.body.surname);
       localStorage.setItem('role', resp.body.role);
-      localStorage.setItem('username',resp.body.username)
+      localStorage.setItem('username', resp.body.username)
       this.router.navigateByUrl('/main-page');
     },
-    error =>{
-      this.showError = true;
-    });
+      error => {
+        this.showError = true;
+      });
   }
 }

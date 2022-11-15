@@ -7,9 +7,9 @@ describe('DisplayGradesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DisplayGradesComponent ]
+      declarations: [DisplayGradesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

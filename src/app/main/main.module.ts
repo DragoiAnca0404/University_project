@@ -9,8 +9,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MapComponent } from './map/map.component';
 import { GradesComponent } from './grades/grades.component';
 import { AddGradesComponent } from '../add-grade-page/select-subject-teacher/add-grades.component';
-import { DisplayGradesComponent } from '../add-grade-page/display-grades/display-grades.component';
-import { AddFormGradeComponent } from '../add-grade-page/add-form-grade/add-form-grade.component';
+import { DisplayGradesComponent } from '../add-grade-page/display-and-add-grades/display-grades.component';
 import { FooterComponent } from '../first-page/footer/footer.component';
 import { HeaderComponent } from '../first-page/header/header.component';
 import { NavigationComponent } from '../first-page/navigation/navigation.component';
@@ -28,7 +27,6 @@ import { MainPageComponent } from './main-page/main-page.component';
     AddGradesComponent,
     GradesComponent,
     DisplayGradesComponent,
-    AddFormGradeComponent,
     MainPageComponent
   ],
   imports: [

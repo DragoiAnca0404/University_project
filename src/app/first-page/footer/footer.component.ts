@@ -18,5 +18,4 @@ export class FooterComponent implements OnInit {
       this.date = new Date()
     }, 1000)
   }
-
 }
