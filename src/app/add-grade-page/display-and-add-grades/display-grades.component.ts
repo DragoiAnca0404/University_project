@@ -3,6 +3,7 @@ import { DisplayCoursesService } from 'src/app/shared/services/display-courses.s
 import { NgToastService } from 'ng-angular-popup';
 import { UntypedFormGroup, UntypedFormControl, FormGroup, Validators, FormControl } from '@angular/forms'
 import { HttpErrorResponse } from '@angular/common/http';
+import { PagingConfig } from 'src/app/models/paging-config';
 
 @Component({
   selector: 'app-display-grades',
@@ -10,17 +11,33 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./display-grades.component.scss']
 })
 
-export class DisplayGradesComponent implements OnInit {
+export class DisplayGradesComponent implements PagingConfig  {
   message: any;
   users: any;
   isPopupOpened = true;
   displayUsers: any;
   bioSection: any
 
-  
+  title = 'ngx-paging-sample';
 
+  currentPage:number  = 1;
+  itemsPerPage: number = 5;
+  totalItems: number = 0;
 
+  tableSize: number[] = [5, 10, 15, 20];
+  //grades = new Array<Grades>();
+
+  pagingConfig: PagingConfig = {} as PagingConfig;
+ 
   constructor(private shared: DisplayCoursesService, private toast: NgToastService) {
+    this.getAllGrades();
+
+    this.pagingConfig = {
+      itemsPerPage: this.itemsPerPage,
+      currentPage: this.currentPage,
+      totalItems: this.totalItems
+    }
+   
     var params = {
       denumire_materie: this.message = this.shared.getMessage()
     };
@@ -62,7 +79,18 @@ export class DisplayGradesComponent implements OnInit {
     this.shared.displayGrades(params).subscribe(data => {
       console.log("data", data);
       this.users = data
+      this.pagingConfig.totalItems = data.length;
     })
+  }
+
+  onTableDataChange(event:any){
+    this.pagingConfig.currentPage  = event;
+    this.getAllGrades();
+  }
+  onTableSizeChange(event:any): void {
+    this.pagingConfig.itemsPerPage = event.target.value;
+    this.pagingConfig.currentPage = 1;
+    this.getAllGrades();
   }
 
   setCountry() {

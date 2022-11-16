@@ -10,11 +10,13 @@ import { DetailsComponent } from './details/details.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
 import {NgToastModule} from 'ng-angular-popup';
+
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
-  ],
+
+     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
