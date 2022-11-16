@@ -63,6 +63,10 @@
           id="add-edit-modal-close"></button>
       </div>
       <div class="modal-body">
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Subject</label>
+          <input formControlName="denumire_materie" type="text" class="form-control" name="country" placeholder="{{message}}" readonly>
+        </div>
         <form [formGroup]="bioSection" (ngSubmit)="callingFunction()">
           <div class="mb-3">
             <label class="form-label">Please select student</label>
@@ -75,10 +79,6 @@
             <label for="formGroupExampleInput2" class="form-label">Add new grade</label>
             <input type="number" class="form-control" placeholder="Introdu nota" formControlName="grade">
             <div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Subject</label>
-                <input formControlName="denumire_materie" type="text" class="form-control" name="country" placeholder="{{message}}" readonly>
-              </div>
               <span style="color:red" *ngIf="grade.invalid">Error Test</span>
             </div>
           </div>
