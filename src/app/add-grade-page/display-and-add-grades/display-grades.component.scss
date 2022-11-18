@@ -1,6 +1,6 @@
 table.table-striped {
-  width: 50%;
-  margin-left: auto;
+  width: 80%;
+  margin-left: 120px;
   margin-right: auto;
 }
 
@@ -15,3 +15,44 @@ table.table-striped {
 .button2 {
   background-color: #008CBA;
 }
+
+input.ng-touched.ng-invalid{
+  border-color: red;
+}
+
+input.ng-valid{
+  border-color: #4CAF50;
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: #45aaf2;
+}
+
+select.ng-valid{
+  border-color: #4CAF50;
+}
+
+select.ng-touched.ng-invalid{
+  border-color: red;
+}
+
+p.ng-valid{
+  color:red ;
+  background-color:green;
+}
+
+p.ng-touched.ng-invalid{
+  color:red ;
+  background-color:red;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.row>* {
+  padding: 100px;}

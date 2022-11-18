@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 import { NgToastService } from 'ng-angular-popup';
-import { UntypedFormGroup, UntypedFormControl, FormGroup, Validators, FormControl } from '@angular/forms'
+import { UntypedFormControl, FormGroup, FormControl } from '@angular/forms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { PagingConfig } from 'src/app/models/paging-config';
 
@@ -60,10 +60,6 @@ export class DisplayGradesComponent implements PagingConfig  {
   }
 
   ngOnInit(): void {
-    //this.message = this.shared.getMessage();
-   // this.bioSection = new FormGroup({
-     // grade:new FormControl('', [Validators.max(10), Validators.min(1), Validators.required])
-     // })
   }
 
   modalTitle: string = '';
@@ -101,6 +97,10 @@ export class DisplayGradesComponent implements PagingConfig  {
     return this.bioSection.get('grade');
   }
 
+  get id_user (){
+    return this.bioSection.get('id_user');
+  }
+
   get denumire_materie(): any {
     return this.bioSection.get('denumire_materie');
   }
@@ -123,7 +123,7 @@ export class DisplayGradesComponent implements PagingConfig  {
       surname: null,
       grade: null,
     }
-    this.modalTitle = "Add New Grades";
+    this.modalTitle = "Update New Grades";
     this.activateAddEditInspectionComponent = true;
   }
 
