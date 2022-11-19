@@ -16,7 +16,16 @@ export class DisplayGradesComponent implements PagingConfig  {
   users: any;
   isPopupOpened = true;
   displayUsers: any;
-  bioSection: any
+  bioSection: any;
+  formValue!: FormGroup;
+
+  btnUpdateShow:boolean = false;
+  btnSaveShow:boolean = true;
+
+  modalTitle: string = '';
+  activateAddEditInspectionComponent: boolean = false;
+  inspection: any;
+  value:any
 
   title = 'ngx-paging-sample';
 
@@ -62,11 +71,6 @@ export class DisplayGradesComponent implements PagingConfig  {
   ngOnInit(): void {
   }
 
-  modalTitle: string = '';
-  activateAddEditInspectionComponent: boolean = false;
-  inspection: any;
-  value:any
-
   getAllGrades() {
     var params = {
       denumire_materie: this.message = this.shared.getMessage()
@@ -89,7 +93,7 @@ export class DisplayGradesComponent implements PagingConfig  {
     this.getAllGrades();
   }
 
-  setCountry() {
+  setValueSubject() {
     this.bioSection.get("denumire_materie").setValue(this.message);
   };
 
@@ -114,9 +118,22 @@ export class DisplayGradesComponent implements PagingConfig  {
     }
     this.modalTitle = "Add New Grades";
     this.activateAddEditInspectionComponent = true;
+    this.UpdateShowBtn();
+   // this.SaveShowBtn();
   }
 
-  updateData() {
+  
+  EditStudent(data:any){
+    this.activateAddEditInspectionComponent = true;
+    this.formValue.controls['denumire_materie'].setValue(data.denumire_materie);
+    this.formValue.controls['name'].setValue(data.name);
+    this.formValue.controls['surname'].setValue(data.surname);
+    this.formValue.controls['grade'].setValue(data.grade);
+    this.formValue.controls['id_grade'].setValue(data.id_grade);
+    this.UpdateShowBtn();
+  }
+
+  UpdateStudent() {
     this.inspection = {
       id: 0,
       name: null,
@@ -125,6 +142,8 @@ export class DisplayGradesComponent implements PagingConfig  {
     }
     this.modalTitle = "Update New Grades";
     this.activateAddEditInspectionComponent = true;
+    this.SaveShowBtn();
+
   }
 
   deleteGrade(id: any) {
@@ -138,7 +157,6 @@ export class DisplayGradesComponent implements PagingConfig  {
     this.shared.addGrades(this.bioSection.value)
       .subscribe(
         (data) => {
-          //console.log('Form submitted successfully');
           alert('Form submitted successfully');
           this.toast.success({ detail: "ERROR", summary: 'Form submitted successfully', sticky: true });
           let ref = document.getElementById('cancel');
@@ -164,5 +182,17 @@ export class DisplayGradesComponent implements PagingConfig  {
           this.toast.error({ detail: "ERROR", summary: 'Error while deleting this grade.', sticky: true });
         }
       })
+  }
+
+  UpdateShowBtn()
+  {
+    this.btnUpdateShow = true;
+    this.btnSaveShow = false;
+  }
+
+  SaveShowBtn()
+  {
+    this.btnUpdateShow = false;
+    this.btnSaveShow = true;
   }
 }
