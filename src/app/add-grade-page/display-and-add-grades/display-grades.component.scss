@@ -16,31 +16,33 @@ table.table-striped {
   background-color: #008CBA;
 }
 
-input.ng-valid{
+input.ng-valid {
   border-color: #4CAF50;
 }
 
 
-select.ng-valid{
+select.ng-valid {
   border-color: #4CAF50;
 }
 
-select.ng-touched.ng-invalid{
+select.ng-touched.ng-invalid {
   border-color: red;
 }
 
-p.ng-valid{
-  color:red ;
-  background-color:green;
+p.ng-valid {
+  color: red;
+  background-color: green;
 }
 
-p.ng-touched.ng-invalid{
-  color:red ;
-  background-color:red;
+p.ng-touched.ng-invalid {
+  color: red;
+  background-color: red;
 }
 
 input.ng-invalid.ng-dirty {
   border: 1px solid #bc0f27 !important;
 }
 
-.EditBtn {border-radius: 50%;}
+.EditBtn {
+  border-radius: 50%;
+}

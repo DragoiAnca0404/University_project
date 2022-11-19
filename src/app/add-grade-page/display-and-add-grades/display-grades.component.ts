@@ -11,7 +11,7 @@ import { PagingConfig } from 'src/app/models/paging-config';
   styleUrls: ['./display-grades.component.scss']
 })
 
-export class DisplayGradesComponent implements PagingConfig  {
+export class DisplayGradesComponent implements PagingConfig {
   message: any;
   users: any;
   isPopupOpened = true;
@@ -19,17 +19,17 @@ export class DisplayGradesComponent implements PagingConfig  {
   bioSection: any;
   formValue!: FormGroup;
 
-  btnUpdateShow:boolean = false;
-  btnSaveShow:boolean = true;
+  btnUpdateShow: boolean = false;
+  btnSaveShow: boolean = true;
 
   modalTitle: string = '';
   activateAddEditInspectionComponent: boolean = false;
   inspection: any;
-  value:any
+  value: any
 
   title = 'ngx-paging-sample';
 
-  currentPage:number  = 1;
+  currentPage: number = 1;
   itemsPerPage: number = 5;
   totalItems: number = 0;
 
@@ -37,7 +37,7 @@ export class DisplayGradesComponent implements PagingConfig  {
   //grades = new Array<Grades>();
 
   pagingConfig: PagingConfig = {} as PagingConfig;
- 
+
   constructor(private shared: DisplayCoursesService, private toast: NgToastService) {
     this.getAllGrades();
 
@@ -46,7 +46,7 @@ export class DisplayGradesComponent implements PagingConfig  {
       currentPage: this.currentPage,
       totalItems: this.totalItems
     }
-   
+
     var params = {
       denumire_materie: this.message = this.shared.getMessage()
     };
@@ -83,11 +83,11 @@ export class DisplayGradesComponent implements PagingConfig  {
     })
   }
 
-  onTableDataChange(event:any){
-    this.pagingConfig.currentPage  = event;
+  onTableDataChange(event: any) {
+    this.pagingConfig.currentPage = event;
     this.getAllGrades();
   }
-  onTableSizeChange(event:any): void {
+  onTableSizeChange(event: any): void {
     this.pagingConfig.itemsPerPage = event.target.value;
     this.pagingConfig.currentPage = 1;
     this.getAllGrades();
@@ -97,11 +97,11 @@ export class DisplayGradesComponent implements PagingConfig  {
     this.bioSection.get("denumire_materie").setValue(this.message);
   };
 
-  get grade (){
+  get grade() {
     return this.bioSection.get('grade');
   }
 
-  get id_user (){
+  get id_user() {
     return this.bioSection.get('id_user');
   }
 
@@ -118,12 +118,12 @@ export class DisplayGradesComponent implements PagingConfig  {
     }
     this.modalTitle = "Add New Grades";
     this.activateAddEditInspectionComponent = true;
-    this.UpdateShowBtn();
-   // this.SaveShowBtn();
+    //this.UpdateShowBtn();
+    this.SaveShowBtn();
   }
 
-  
-  EditStudent(data:any){
+
+  EditStudent(data: any) {
     this.activateAddEditInspectionComponent = true;
     this.formValue.controls['denumire_materie'].setValue(data.denumire_materie);
     this.formValue.controls['name'].setValue(data.name);
@@ -184,14 +184,12 @@ export class DisplayGradesComponent implements PagingConfig  {
       })
   }
 
-  UpdateShowBtn()
-  {
+  UpdateShowBtn() {
     this.btnUpdateShow = true;
     this.btnSaveShow = false;
   }
 
-  SaveShowBtn()
-  {
+  SaveShowBtn() {
     this.btnUpdateShow = false;
     this.btnSaveShow = true;
   }
