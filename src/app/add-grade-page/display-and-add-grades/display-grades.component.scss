@@ -16,18 +16,10 @@ table.table-striped {
   background-color: #008CBA;
 }
 
-input.ng-touched.ng-invalid{
-  border-color: red;
-}
-
 input.ng-valid{
   border-color: #4CAF50;
 }
 
-aside {
-  grid-area: sidebar;
-  background-color: #45aaf2;
-}
 
 select.ng-valid{
   border-color: #4CAF50;
@@ -47,12 +39,6 @@ p.ng-touched.ng-invalid{
   background-color:red;
 }
 
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+input.ng-invalid.ng-dirty {
+  border: 1px solid #bc0f27 !important;
 }
-
-.row>* {
-  padding: 100px;}
