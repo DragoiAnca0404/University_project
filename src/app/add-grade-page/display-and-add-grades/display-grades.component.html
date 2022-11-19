@@ -101,15 +101,14 @@
               </option>
             </select>
            <div>
-              <span style="color:red" *ngIf="id_user.invalid">Error Test</span>
+              <span style="color:grey" *ngIf="id_user.invalid">Please select a student from the list</span>
             </div>
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Add new grade</label>
             <input type="number" class="form-control" placeholder="Introdu nota" formControlName="grade" required max="10" min="1">
-            <p *ngIf="grade.invalid">required grade Test</p>
+            <p style="color:grey" *ngIf="grade.invalid">Please complete the field</p>
             <p *ngIf="grade.invalid.max">min grade Test</p>
-
           </div>
           <div class="modal-footer">
             <button [disabled]="bioSection.invalid"  type="submit" class="btn btn-outline-primary" (click)="setCountry()"> Add </button>
