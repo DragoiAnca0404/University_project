@@ -32,7 +32,7 @@
         <td>{{item.grade}}</td>
         <th>
           <button class="btn btn-outline-dark EditBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-            (click)="modalAdd()" (click)="EditStudent(item)">
+          (click)="onEdit(item)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-pencil-square" viewBox="0 0 16 16">
               <path
@@ -76,10 +76,9 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Subject</label>
-          <input formControlName="denumire_materie" type="text" class="form-control" name="country"
-            placeholder="{{message}}" readonly>
+          <input formControlName="denumire_materie" type="text" class="form-control" name="denumire_materie" placeholder="{{message}}" readonly>
         </div>
-        <form [formGroup]="bioSection" (ngSubmit)="callingFunction()">
+        <form [formGroup]="bioSection">
           <div class="mb-3">
             <label class="form-label">Please select student</label>
             <select class="form-select" formControlName="id_user" required>
@@ -92,15 +91,14 @@
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Add new grade</label>
-            <input type="number" class="form-control" placeholder="Introdu nota" formControlName="grade" required
-              max="10" min="1">
+            <input type="number" class="form-control" placeholder="Introdu nota" formControlName="grade" required  max="10" min="1">
             <p style="color:grey" *ngIf="grade.invalid">*Please complete the field with a number between 1-10</p>
           </div>
           <div class="modal-footer">
             <button *ngIf="btnSaveShow" [disabled]="bioSection.invalid" type="submit" class="btn btn-outline-primary"
-              (click)="setValueSubject()"> Add </button>
+              (click)="setValueSubject()" (click)="callingFunction()"> Add </button>
             <button *ngIf="btnUpdateShow" [disabled]="bioSection.invalid" type="submit" class="btn btn-outline-primary"
-              (click)="setValueSubject()"> Update </button>
+              (click)="setValueSubject()" (click)="UpdateStudent()"> Update </button>
             <button type="button" id="cancel" class="btn btn-outline-secondary" data-bs-dismiss="modal"> Close </button>
           </div>
         </form>

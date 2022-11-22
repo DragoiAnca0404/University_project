@@ -23,6 +23,11 @@ export class DisplayCoursesService {
     return this.httpClient.post(`${this.defaultBeUrl}/add`, data, { responseType: 'text' });
   }
 
+  updateGrades(data:any, id:number): Observable<any> {
+    //return this.httpClient.put(`${this.defaultBeUrl}/api/UpdateGrade/`+ id,data, data, { responseType: 'text' });
+    return this.httpClient.put(`${this.defaultBeUrl}/api/UpdateGrade/`+ id, data);
+  }
+
   displayCourses(params: any): Observable<any> {
     let requestParams = new HttpParams();
     requestParams = requestParams.append('username', params.username);

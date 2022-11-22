@@ -4,6 +4,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { UntypedFormControl, FormGroup, FormControl } from '@angular/forms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { PagingConfig } from 'src/app/models/paging-config';
+import { StudentModel } from 'src/app/models/student-model.model';
 
 @Component({
   selector: 'app-display-grades',
@@ -18,6 +19,8 @@ export class DisplayGradesComponent implements PagingConfig {
   displayUsers: any;
   bioSection: any;
   formValue!: FormGroup;
+  studentobj: StudentModel = new StudentModel;
+
 
   btnUpdateShow: boolean = false;
   btnSaveShow: boolean = true;
@@ -34,7 +37,6 @@ export class DisplayGradesComponent implements PagingConfig {
   totalItems: number = 0;
 
   tableSize: number[] = [5, 10, 15, 20];
-  //grades = new Array<Grades>();
 
   pagingConfig: PagingConfig = {} as PagingConfig;
 
@@ -118,33 +120,47 @@ export class DisplayGradesComponent implements PagingConfig {
     }
     this.modalTitle = "Add New Grades";
     this.activateAddEditInspectionComponent = true;
-    //this.UpdateShowBtn();
     this.SaveShowBtn();
   }
 
 
-  EditStudent(data: any) {
-    this.activateAddEditInspectionComponent = true;
-    this.formValue.controls['denumire_materie'].setValue(data.denumire_materie);
-    this.formValue.controls['name'].setValue(data.name);
-    this.formValue.controls['surname'].setValue(data.surname);
-    this.formValue.controls['grade'].setValue(data.grade);
-    this.formValue.controls['id_grade'].setValue(data.id_grade);
+  onEdit(data: any) {
+    this.modalTitle = "Edit Grade";
     this.UpdateShowBtn();
-  }
 
-  UpdateStudent() {
+    this.studentobj.id_grade = data.id_grade;
+    this.bioSection.controls['grade'].setValue(data.grade);
+    this.bioSection.controls['name'].setValue(data.name);
+    this.bioSection.controls['surname'].setValue(data.name);
+    this.bioSection.controls['denumire_materie'].setValue(data.denumire_materie);
+
+
+    }
+
+    UpdateStudent() {
+      this.studentobj.id_user = this.bioSection.value.id_user;
+      this.studentobj.grade = this.bioSection.value.grade;
+      this.studentobj.denumire_materie = this.bioSection.value.denumire_materie;
+
+      this.shared.updateGrades(this.studentobj,this.studentobj.id_grade).subscribe(res => {
+        alert("Data Updated");
+        this.getAllGrades();
+        this.UpdateShowBtn();
+      })
+
+    }
+
+  /*UpdateStudent() {
     this.inspection = {
       id: 0,
       name: null,
       surname: null,
       grade: null,
     }
-    this.modalTitle = "Update New Grades";
+    this.modalTitle = "Edit Grade";
     this.activateAddEditInspectionComponent = true;
-    this.SaveShowBtn();
-
-  }
+    this.UpdateShowBtn();
+  }*/
 
   deleteGrade(id: any) {
     this.shared.deleteGrade(id).subscribe(id => {
