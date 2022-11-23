@@ -6,7 +6,7 @@
   <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="modalAdd()">
     Add Grade
   </button>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
 <div>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="row">
-  <table class="table table-striped" font-size: large style="width:100%">
+  <table class="table table-striped" font-size: large style="width:70%">
     <thead>
       <th>Id_Grade</th>
       <th>Name</th>
@@ -32,7 +32,7 @@
         <td>{{item.grade}}</td>
         <th>
           <button class="btn btn-outline-dark EditBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-          (click)="onEdit(item)">
+            (click)="onEdit(item)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-pencil-square" viewBox="0 0 16 16">
               <path
@@ -76,7 +76,8 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="formGroupExampleInput2" class="form-label">Subject</label>
-          <input formControlName="denumire_materie" type="text" class="form-control" name="denumire_materie" placeholder="{{message}}" readonly>
+          <input formControlName="denumire_materie" type="text" class="form-control" name="denumire_materie"
+            placeholder="{{message}}" readonly>
         </div>
         <form [formGroup]="bioSection">
           <div class="mb-3">
@@ -91,7 +92,8 @@
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Add new grade</label>
-            <input type="number" class="form-control" placeholder="Introdu nota" formControlName="grade" required  max="10" min="1">
+            <input type="number" class="form-control" placeholder="Introdu nota" formControlName="grade" required
+              max="10" min="1">
             <p style="color:grey" *ngIf="grade.invalid">*Please complete the field with a number between 1-10</p>
           </div>
           <div class="modal-footer">

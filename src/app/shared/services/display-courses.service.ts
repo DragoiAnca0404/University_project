@@ -25,7 +25,7 @@ export class DisplayCoursesService {
 
   updateGrades(data:any, id:number): Observable<any> {
     //return this.httpClient.put(`${this.defaultBeUrl}/api/UpdateGrade/`+ id,data, data, { responseType: 'text' });
-    return this.httpClient.put(`${this.defaultBeUrl}/api/UpdateGrade/`+ id, data);
+    return this.httpClient.put(`${this.defaultBeUrl}/UpdateGrade/`+ id, data);
   }
 
   displayCourses(params: any): Observable<any> {

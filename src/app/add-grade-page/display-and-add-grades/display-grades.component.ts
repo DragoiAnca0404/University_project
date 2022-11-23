@@ -89,6 +89,7 @@ export class DisplayGradesComponent implements PagingConfig {
     this.pagingConfig.currentPage = event;
     this.getAllGrades();
   }
+
   onTableSizeChange(event: any): void {
     this.pagingConfig.itemsPerPage = event.target.value;
     this.pagingConfig.currentPage = 1;
@@ -123,44 +124,26 @@ export class DisplayGradesComponent implements PagingConfig {
     this.SaveShowBtn();
   }
 
-
   onEdit(data: any) {
     this.modalTitle = "Edit Grade";
     this.UpdateShowBtn();
 
-    this.studentobj.id_grade = data.id_grade;
+    this.studentobj.id_Calificativ = data.id_grade;
     this.bioSection.controls['grade'].setValue(data.grade);
-    this.bioSection.controls['name'].setValue(data.name);
-    this.bioSection.controls['surname'].setValue(data.name);
-    this.bioSection.controls['denumire_materie'].setValue(data.denumire_materie);
+    this.bioSection.controls['id_user'].setValue(data.id_user);
+  }
 
+  UpdateStudent() {
+    this.studentobj.id_student = this.bioSection.value.id_user;
+    this.studentobj.nota = this.bioSection.value.grade;
+    this.studentobj.denumire_materie = this.bioSection.value.denumire_materie;
 
-    }
-
-    UpdateStudent() {
-      this.studentobj.id_user = this.bioSection.value.id_user;
-      this.studentobj.grade = this.bioSection.value.grade;
-      this.studentobj.denumire_materie = this.bioSection.value.denumire_materie;
-
-      this.shared.updateGrades(this.studentobj,this.studentobj.id_grade).subscribe(res => {
-        alert("Data Updated");
-        this.getAllGrades();
-        this.UpdateShowBtn();
-      })
-
-    }
-
-  /*UpdateStudent() {
-    this.inspection = {
-      id: 0,
-      name: null,
-      surname: null,
-      grade: null,
-    }
-    this.modalTitle = "Edit Grade";
-    this.activateAddEditInspectionComponent = true;
-    this.UpdateShowBtn();
-  }*/
+    this.shared.updateGrades(this.studentobj, this.studentobj.id_Calificativ).subscribe(res => {
+      alert("Data Updated");
+      this.getAllGrades();
+      this.UpdateShowBtn();
+    })
+  }
 
   deleteGrade(id: any) {
     this.shared.deleteGrade(id).subscribe(id => {
@@ -177,8 +160,6 @@ export class DisplayGradesComponent implements PagingConfig {
           this.toast.success({ detail: "ERROR", summary: 'Form submitted successfully', sticky: true });
           let ref = document.getElementById('cancel');
           ref?.click();
-          this.getAllGrades();
-          this.bioSection.reset();
         },
         (error: HttpErrorResponse) => {
           this.toast.error({ detail: "ERROR", summary: 'Error while deleting this grade.', sticky: true });

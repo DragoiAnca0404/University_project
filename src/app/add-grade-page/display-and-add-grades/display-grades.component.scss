@@ -1,7 +1,14 @@
 table.table-striped {
-  width: 80%;
-  margin-left: 120px;
+  width: 50%;
+  margin-left: auto;
   margin-right: auto;
+}
+
+table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
 }
 
 .btn {
@@ -35,17 +42,22 @@ input.ng-valid.ng-dirty {
 }
 
 select.ng-valid {
-  border-color:  #4CAF50 ;
+  border-color: #4CAF50;
   border-style: solid;
   border-width: 2px;
 }
 
 select.ng-touched.ng-invalid {
-  border-color:  red;
+  border-color: red;
   border-style: solid;
   border-width: 2px;
 }
 
 .EditBtn {
   border-radius: 50%;
+}
+
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
 }
