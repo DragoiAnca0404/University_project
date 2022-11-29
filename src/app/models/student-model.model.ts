@@ -4,7 +4,7 @@ export class StudentModel {
     //grade:number=0;
     denumire_materie:string="";
     id_Calificativ:number=0;
-    //id_materie:number=0;
+    id_materie:any;
     id_student:number=0;
     nota:number=0;
 }

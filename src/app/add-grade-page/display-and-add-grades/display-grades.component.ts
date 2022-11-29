@@ -20,7 +20,7 @@ export class DisplayGradesComponent implements PagingConfig {
   bioSection: any;
   formValue!: FormGroup;
   studentobj: StudentModel = new StudentModel;
-
+  posts:any;
 
   btnUpdateShow: boolean = false;
   btnSaveShow: boolean = true;
@@ -42,6 +42,11 @@ export class DisplayGradesComponent implements PagingConfig {
 
   constructor(private shared: DisplayCoursesService, private toast: NgToastService) {
     this.getAllGrades();
+
+    this.shared.displayIdSubject(this.message).subscribe(data => {
+      console.log("data", data);
+      this.posts = data
+    })
 
     this.pagingConfig = {
       itemsPerPage: this.itemsPerPage,
@@ -134,6 +139,7 @@ export class DisplayGradesComponent implements PagingConfig {
   }
 
   UpdateStudent() {
+    this.studentobj.id_materie =  this.posts.id_materie;
     this.studentobj.id_student = this.bioSection.value.id_user;
     this.studentobj.nota = this.bioSection.value.grade;
     this.studentobj.denumire_materie = this.bioSection.value.denumire_materie;
@@ -141,7 +147,9 @@ export class DisplayGradesComponent implements PagingConfig {
     this.shared.updateGrades(this.studentobj, this.studentobj.id_Calificativ).subscribe(res => {
       alert("Data Updated");
       this.getAllGrades();
-      this.UpdateShowBtn();
+      let ref = document.getElementById('cancel');
+      ref?.click();
+     // this.UpdateShowBtn();
     })
   }
 
