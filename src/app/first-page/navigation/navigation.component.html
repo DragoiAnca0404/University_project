@@ -19,7 +19,7 @@
       <a mat-list-item href="#">
         <mat-icon>library_books</mat-icon>&nbsp;<span *ngIf="isExpanded">All courses</span>
       </a>
-      <a *ngIf="role == 'Student'" mat-list-item href="#">
+      <a *ngIf="role == 'Student'" mat-list-item [routerLink]="['/grade-detail']">
         <mat-icon>grade</mat-icon>&nbsp;<span *ngIf="isExpanded">Grades</span>
       </a>
       <a *ngIf="role == 'Profesor'" mat-list-item [routerLink]="['/add-grades']">
