@@ -45,7 +45,7 @@ export class DisplayCoursesService {
   displayGrades(params: any): Observable<any> {
     let requestParams = new HttpParams();
     requestParams = requestParams.append('denumire_materie', params.denumire_materie);
-    return this.httpClient.get(`${this.defaultBeUrl}/GradesDisplay`,{params: requestParams});
+    return this.httpClient.get(`${this.defaultBeUrl}/GradesDisplay/ViewGradesTeacher`,{params: requestParams});
   }
 
   displayStudents(params: any): Observable<any> {
