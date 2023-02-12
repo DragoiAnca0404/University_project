@@ -12,8 +12,7 @@ export class AddGradesComponent implements OnInit {
   username: any;
 
   constructor(
-    public coursesService: DisplayCoursesService, private router: Router
-  ) {
+    public coursesService: DisplayCoursesService, private router: Router) {
     const params = {
       username: localStorage.getItem('username'),
     };
