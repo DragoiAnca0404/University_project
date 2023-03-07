@@ -28,7 +28,7 @@ username: any;
       '456-456-4567']
     }
 
-    this.shared.displayAllSubjects(params).subscribe(data => {
+    this.shared.displayAllGradesOneSubject(params).subscribe(data => {
       console.log("data", data);
       this.subjects = data
     })
@@ -39,7 +39,7 @@ username: any;
   }
 
   onSelect(item: any) {
-    this.router.navigate(['/add-grades', item.denumire_materie]);
+    this.router.navigate(['/display-grades', item.denumire_materie]);
     this.shared.setMessage(item.denumire_materie)
   }
 }

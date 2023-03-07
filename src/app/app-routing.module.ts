@@ -9,6 +9,7 @@ import { DisplayGradesComponent } from './add-grade-page/display-and-add-grades/
 import { MainPageComponent } from './main/main-page/main-page.component';
 import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
 import { GradeDetailComponent } from './role-student/grade_module/grade-detail/grade-detail.component';
+import { GradesSubjectTableComponent } from './role-student/grade_module/grades-subject-table/grades-subject-table.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path:'add-grades/:denumire_materie',
     component: DisplayGradesComponent
+  },
+  {
+    path:'display-grades/:denumire_materie',
+    component: GradesSubjectTableComponent
   },
   {
     path:'grade-detail',

@@ -11,12 +11,14 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
 import {NgToastModule} from 'ng-angular-popup';
 import { GradeDetailComponent } from './role-student/grade_module/grade-detail/grade-detail.component';
+import { GradesSubjectTableComponent } from './role-student/grade_module/grades-subject-table/grades-subject-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
     GradeDetailComponent,
+    GradesSubjectTableComponent,
 
      ],
   imports: [
