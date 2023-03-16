@@ -5,6 +5,8 @@ import { UntypedFormControl, FormGroup, FormControl } from '@angular/forms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { PagingConfig } from 'src/app/models/paging-config';
 import { StudentModel } from 'src/app/models/student-model.model';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-display-grades',
@@ -21,6 +23,10 @@ export class DisplayGradesComponent implements PagingConfig {
   formValue!: FormGroup;
   studentobj: StudentModel = new StudentModel;
   posts:any;
+  currentDate = new Date();
+
+
+
 
   btnUpdateShow: boolean = false;
   btnSaveShow: boolean = true;
@@ -39,9 +45,11 @@ export class DisplayGradesComponent implements PagingConfig {
   tableSize: number[] = [5, 10, 15, 20];
 
   pagingConfig: PagingConfig = {} as PagingConfig;
-
-  constructor(private shared: DisplayCoursesService, private toast: NgToastService) {
+  constructor(private shared: DisplayCoursesService, public datepipe: DatePipe,private datePipe: DatePipe, private toast: NgToastService) {
     this.getAllGrades();
+    this.currentDate=new Date();
+    let latest_date =this.datepipe.transform(this.currentDate, 'dd-MM-yyyy');
+    console.log(latest_date);
 
     this.shared.displayIdSubject(this.message).subscribe(data => {
       console.log("data", data);
@@ -61,7 +69,8 @@ export class DisplayGradesComponent implements PagingConfig {
     this.bioSection = new FormGroup({
       id_user: new UntypedFormControl(),
       grade: new UntypedFormControl(''),
-      denumire_materie: new FormControl(this.message)
+      denumire_materie: new FormControl(this.message),
+      data_nota: new FormControl(latest_date),
     });
 
     this.shared.displayGrades(params).subscribe(data => {
@@ -75,7 +84,9 @@ export class DisplayGradesComponent implements PagingConfig {
     })
   }
 
+
   ngOnInit(): void {
+
   }
 
   getAllGrades() {
@@ -115,6 +126,10 @@ export class DisplayGradesComponent implements PagingConfig {
 
   get denumire_materie(): any {
     return this.bioSection.get('denumire_materie');
+  }
+
+  get data_nota(): any {
+    return this.bioSection.get('data_nota');
   }
 
   modalAdd() {

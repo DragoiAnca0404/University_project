@@ -20,6 +20,7 @@
       <th>Name</th>
       <th>Surname</th>
       <th>Grade</th>
+      <th>Date</th>
       <th>Edit Grade</th>
       <th>Delete Grade</th>
     </thead>
@@ -30,6 +31,8 @@
         <td>{{item.name}}</td>
         <td>{{item.surname}}</td>
         <td>{{item.grade}}</td>
+        <td>{{item.current_date}}</td>
+
         <th>
           <button class="btn btn-outline-dark EditBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
             (click)="onEdit(item)">
@@ -96,6 +99,12 @@
               max="10" min="1">
             <p style="color:grey" *ngIf="grade.invalid">*Please complete the field with a number between 1-10</p>
           </div>
+
+          <label>The current date is: </label>
+          <div>
+            <p class="form-control" formControlName="data_nota" type="text"> {{currentDate | date:'dd-MM-yyyy'}}</p>
+          </div>
+
           <div class="modal-footer">
             <button *ngIf="btnSaveShow"  [disabled]="bioSection.invalid" type="submit" class="btn btn-outline-primary"
               (click)="setValueSubject()" (click)="callingFunction()"> Add </button>

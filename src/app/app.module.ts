@@ -12,6 +12,7 @@ import { UserIsLoginGuard } from './shared/guards/user-is-login.guard';
 import {NgToastModule} from 'ng-angular-popup';
 import { GradeDetailComponent } from './role-student/grade_module/grade-detail/grade-detail.component';
 import { GradesSubjectTableComponent } from './role-student/grade_module/grades-subject-table/grades-subject-table.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,6 @@ import { GradesSubjectTableComponent } from './role-student/grade_module/grades-
     DetailsComponent,
     GradeDetailComponent,
     GradesSubjectTableComponent,
-
      ],
   imports: [
     BrowserModule,
@@ -30,7 +30,7 @@ import { GradesSubjectTableComponent } from './role-student/grade_module/grades-
     FormsModule,
     NgToastModule
   ],
-  providers: [AuthGuard, UserIsLoginGuard],
+  providers: [AuthGuard, UserIsLoginGuard, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
