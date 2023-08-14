@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DisplayCoursesService } from 'src/app/shared/services/display-courses.service';
 import { NgToastService } from 'ng-angular-popup';
 import { UntypedFormControl, FormGroup, FormControl } from '@angular/forms'
-import { HttpErrorResponse } from '@angular/common/http';
 import { PagingConfig } from 'src/app/models/paging-config';
-import { StudentModel } from 'src/app/models/student-model.model';
 
 @Component({
   selector: 'app-grades-subject-table',
@@ -15,7 +13,7 @@ export class GradesSubjectTableComponent implements PagingConfig {
   users: any;
   message: any;
   bioSection: any;
-
+  username: any;
 
   title = 'ngx-paging-sample';
 
@@ -35,7 +33,7 @@ export class GradesSubjectTableComponent implements PagingConfig {
       totalItems: this.totalItems
     }
     var params = {
-      denumire_materie: this.message = this.shared.getMessage()
+      denumire_materie: this.message = this.shared.getMessage(),
     };
 
     this.bioSection = new FormGroup({
@@ -43,8 +41,9 @@ export class GradesSubjectTableComponent implements PagingConfig {
       grade: new UntypedFormControl(''),
       denumire_materie: new FormControl(this.message)
     });
+    this.username = localStorage.getItem('username');
 
-    this.shared.displayGrades(params).subscribe(data => {
+    this.shared.displayGradesStudent(params, this.username).subscribe(data => {
       console.log("data", data);
       this.users = data
     })
@@ -59,8 +58,9 @@ export class GradesSubjectTableComponent implements PagingConfig {
     var params = {
       denumire_materie: this.message = this.shared.getMessage()
     };
+    this.username = localStorage.getItem('username');
 
-    this.shared.displayGrades(params).subscribe(data => {
+    this.shared.displayGradesStudent(params, this.username).subscribe(data => {
       console.log("data", data);
       this.users = data
       this.pagingConfig.totalItems = data.length;

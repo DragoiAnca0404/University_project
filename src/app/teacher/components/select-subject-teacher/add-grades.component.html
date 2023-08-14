@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center align-items-center">
+  <img class="logo" src="assets/images/exam.png" alt="Exam Logo">
+  <h1 class="header">Select the subject:</h1>
+</div>
+
+<div class="d-flex justify-content-center">
+  <mat-form-field>
+    <mat-label>The Subject</mat-label>
+    <mat-select>
+      <mat-option>None</mat-option>
+      <div class="bottom-container">
+        <button class="course-button" (click)="onSelect(item)" *ngFor="let item of courses">
+          <mat-option>{{item.denumire_materie}}</mat-option>
+        </button>
+      </div>
+    </mat-select>
+  </mat-form-field>
+</div>

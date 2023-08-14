@@ -7,4 +7,5 @@ export class StudentModel {
     id_materie:any;
     id_student:number=0;
     nota:number=0;
+    CurrentDateGrade:string="";
 }

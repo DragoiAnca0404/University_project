@@ -8,12 +8,12 @@ import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from '../app-routing.module';
 import { MapComponent } from './map/map.component';
 import { GradesComponent } from './grades/grades.component';
-import { AddGradesComponent } from '../add-grade-page/select-subject-teacher/add-grades.component';
-import { DisplayGradesComponent } from '../add-grade-page/display-and-add-grades/display-grades.component';
 import { FooterComponent } from '../first-page/footer/footer.component';
 import { HeaderComponent } from '../first-page/header/header.component';
 import { NavigationComponent } from '../first-page/navigation/navigation.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { AddGradesComponent } from '../teacher/components/select-subject-teacher/add-grades.component';
+import { DisplayGradesComponent } from '../teacher/components/display-and-add-grades/display-grades.component';
 
 
 

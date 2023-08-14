@@ -33,7 +33,7 @@ export class DisplayGradesComponent implements PagingConfig {
 
   modalTitle: string = '';
   activateAddEditInspectionComponent: boolean = false;
-  inspection: any;
+  //inspection: any;
   value: any
 
   title = 'ngx-paging-sample';
@@ -42,13 +42,20 @@ export class DisplayGradesComponent implements PagingConfig {
   itemsPerPage: number = 5;
   totalItems: number = 0;
 
+  inspection: any = {  // Asigurați-vă că obiectul "inspection" este declarat în cadrul clasei componentei
+    id: 0,
+    name: null,
+    surname: null,
+    grade: null,
+  };
+
   tableSize: number[] = [5, 10, 15, 20];
 
   pagingConfig: PagingConfig = {} as PagingConfig;
   constructor(private shared: DisplayCoursesService, public datepipe: DatePipe,private datePipe: DatePipe, private toast: NgToastService) {
     this.getAllGrades();
     this.currentDate=new Date();
-    let latest_date =this.datepipe.transform(this.currentDate, 'dd-MM-yyyy');
+    const latest_date =this.datepipe.transform(this.currentDate, 'dd-MM-yyyy');
     console.log(latest_date);
 
     this.shared.displayIdSubject(this.message).subscribe(data => {
@@ -132,7 +139,7 @@ export class DisplayGradesComponent implements PagingConfig {
     return this.bioSection.get('data_nota');
   }
 
-  modalAdd() {
+  /*modalAdd() {
     this.inspection = {
       id: 0,
       name: null,
@@ -142,8 +149,28 @@ export class DisplayGradesComponent implements PagingConfig {
     this.modalTitle = "Add New Grades";
     this.activateAddEditInspectionComponent = true;
     this.SaveShowBtn();
-  }
+  }*/
 
+  modalAdd() {
+    this.clearFields();
+   // this.bioSection.reset();
+    this.bioSection.controls['grade'].reset();
+    this.bioSection.controls['id_user'].reset();
+    this.modalTitle = "Add New Grades";
+    this.activateAddEditInspectionComponent = true;
+    this.SaveShowBtn();
+
+  }
+  
+  clearFields() {
+    this.inspection = {
+      id: 0,
+      name: null,
+      surname: null,
+      grade: null,
+    };
+  }
+  
   onEdit(data: any) {
     this.modalTitle = "Edit Grade";
     this.UpdateShowBtn();
@@ -158,6 +185,7 @@ export class DisplayGradesComponent implements PagingConfig {
     this.studentobj.id_student = this.bioSection.value.id_user;
     this.studentobj.nota = this.bioSection.value.grade;
     this.studentobj.denumire_materie = this.bioSection.value.denumire_materie;
+    this.studentobj.CurrentDateGrade = this.bioSection.value.data_nota;
 
     this.shared.updateGrades(this.studentobj, this.studentobj.id_Calificativ).subscribe(res => {
       alert("Data Updated");
@@ -179,6 +207,7 @@ export class DisplayGradesComponent implements PagingConfig {
     this.shared.addGrades(this.bioSection.value)
       .subscribe(
         (data) => {
+          this.getAllGrades();
           alert('Form submitted successfully');
           this.toast.success({ detail: "ERROR", summary: 'Form submitted successfully', sticky: true });
           let ref = document.getElementById('cancel');

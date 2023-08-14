@@ -1,0 +1,46 @@
+
+h1
+{font: 300 20px/55px Roboto,"Helvetica Neue", sans-serif;}
+
+.bottom-container {
+display: flex;
+flex-direction: column-reverse;
+}
+
+mat-select{
+    position: relative;
+    bottom: -40px; 
+}
+
+.logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .header {
+    font-size: 24px;
+    color: #333;
+    margin-left: 10px;
+  }
+
+  .course-button {
+    background-color: #e6e6e6;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .course-button:hover {
+    background-color: #ddd;
+  }
+
+
+
+
+
+
+
+

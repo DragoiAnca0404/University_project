@@ -23,10 +23,10 @@ export class DisplayCoursesService {
     return this.httpClient.post(`${this.defaultBeUrl}/add`, data, { responseType: 'text' });
   }
 
-  updateGrades(data:any, id:number): Observable<any> {
-    //return this.httpClient.put(`${this.defaultBeUrl}/api/UpdateGrade/`+ id,data, data, { responseType: 'text' });
-    return this.httpClient.put(`${this.defaultBeUrl}/UpdateGrade/`+ id, data);
+  updateGrades(data: any, id: number): Observable<any> {
+    return this.httpClient.put(`${this.defaultBeUrl}/UpdateGrade/${id}`, data);
   }
+  
 
   displayCourses(params: any): Observable<any> {
     let requestParams = new HttpParams();
@@ -46,6 +46,13 @@ export class DisplayCoursesService {
     let requestParams = new HttpParams();
     requestParams = requestParams.append('denumire_materie', params.denumire_materie);
     return this.httpClient.get(`${this.defaultBeUrl}/GradesDisplay/ViewGradesTeacher`,{params: requestParams});
+  }
+
+  displayGradesStudent(params: any, username:any): Observable<any> {
+    const requestParams = new HttpParams()
+    .set('username', username)
+    .set('denumire_materie', params.denumire_materie);
+    return this.httpClient.get(`${this.defaultBeUrl}/GradesDisplay/ViewGradesStudent`,{params: requestParams});
   }
 
   displayStudents(params: any): Observable<any> {
