@@ -9,6 +9,9 @@ This project is a role-based **Online Student Result Management System** built u
   - **Administrator**: Has the highest level of privileges, including managing users, results, and system configurations.
   - **Teacher**: Can add, edit, and update student information and results.
   - **Student**: Can only view their own results.
+  - A teacher can add grades for the subjects they are associated with, and the student can view these grades in real-time.
+ 
+
   
 - **Secure Authentication**: Uses **JWT (JSON Web Token)** for secure user authentication and authorization.
   
